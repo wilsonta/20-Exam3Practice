@@ -6,9 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
-
+         and Tim Wilson.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE
 ###############################################################################
 # Students:
 #
@@ -39,7 +38,7 @@ def main():
 def run_test_integers():
     """ Tests the    integers    function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  integers  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     #
@@ -71,7 +70,18 @@ def run_test_integers():
                        ])
     print('Expected is:', expected)
     print('Actual is:  ', answer)
-
+    #Test2
+    expected = [-5,0,60,10,30,-4]
+    answer = integers([(-5,0,60),
+                           (10, 'hello', 'hello'),
+                           ['hello','goodbye'],
+                           [],
+                           ['oops'],
+                           [[55], [44]],
+                           [30, -4]
+                           ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
 
 def integers(sequence_of_sequences):
     """
@@ -95,8 +105,15 @@ def integers(sequence_of_sequences):
       :type sequence_of_sequences: (list|tuple) of (list|tuple|string)
       :rtype: list of int
     """
+    list=[]
+    for k in range(len(sequence_of_sequences)):
+        sequence=sequence_of_sequences[k]
+        for j in range(len(sequence)):
+            if type(sequence[j])==int:
+                list=list+[sequence[j]]
+    return list
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     ###########################################################################
@@ -124,7 +141,7 @@ def integers(sequence_of_sequences):
 def run_test_big_letters():
     """ Tests the    big_letters    function. """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONE: 4. Implement this TEST function.
     #   It TESTS the  big_letters  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     # -------------------------------------------------------------------------
@@ -159,7 +176,11 @@ def run_test_big_letters():
                           ])
     print('Expected is:', expected)
     print('Actual is:  ', answer)
-
+    # Test 2:
+    expected = 'HELPMEICHEAT'
+    answer = big_letters([(3, 1, 4), 'HELP ME','no','I do not CHEAT'])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
 
 def big_letters(sequence_of_sequences):
     """
@@ -189,8 +210,16 @@ def big_letters(sequence_of_sequences):
 
     Precondition:  the given argument is a sequence of sequences.
     """
+    list=''
+    for k in range(len(sequence_of_sequences)):
+        sequence=sequence_of_sequences[k]
+        if type(sequence_of_sequences[k]) == str:
+            for j in range(len(sequence)):
+                if sequence[j].isupper():
+                    list=list+str(sequence[j])
+    return list
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     ###########################################################################
