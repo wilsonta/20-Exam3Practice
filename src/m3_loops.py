@@ -208,8 +208,18 @@ def practice_problem3(start, n, threshold):
       :type n:     int
       :type threshold: float
     """
+    count=0
+    list=[]
+    while True:
+        if count<n:
+            start=start+1
+            if math.cos(start-1)+math.sin(start-1)>threshold:
+                list=list+[start-1]
+                count=count+1
+        else:
+            return list
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ###########################################################################
