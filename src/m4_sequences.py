@@ -36,9 +36,9 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_practice_problem4a()
-    run_test_practice_problem4b()
-    run_test_practice_problem4c()
+    #run_test_practice_problem4a()
+    #run_test_practice_problem4b()
+    #run_test_practice_problem4c()
     run_test_practice_problem4d()
 
 
@@ -134,8 +134,13 @@ def practice_problem4a(sequence):
     Type hints:
       :type sequence: list | tuple | string
     """
+    list=[]
+    for k in range(len(sequence)-1):
+        if sequence[k]==sequence[k+1]:
+            list=list+[k]
+    return list
     ###########################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -197,8 +202,13 @@ def practice_problem4b(sequence):
     Type hints:
       :type sequence: (list | tuple) of (float | int)
     """
+    largest=sequence[0]
+    for k in range(0,len(sequence),2):
+        if sequence[k]>largest:
+            largest=sequence[k]
+    return largest
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -295,8 +305,17 @@ def practice_problem4c(points):
       :type points: tuple of rg.Point
       :rtype: rg.Point | string
     """
+    for k in range(len(points)):
+        point=points[k]
+        originalpoint=points[k].clone()
+        if is_prime(point.x):
+            if is_prime(point.y):
+                point.x=originalpoint.y
+                point.y=originalpoint.x
+                return point
+    return 'Not found'
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -391,6 +410,13 @@ def practice_problem4d(sequence):
       :type sequence: (list | tuple) of int
       :rtype: int
     """
+    total=0
+    for k in range(len(sequence)-1):
+        if is_prime(sequence[k]):
+            if is_prime(sequence[k+1]):
+                if sequence[k]!=sequence[k+1]:
+                    total=total+sequence[k]
+    return total
     ###########################################################################
     # TODO: 5. Implement and test this function.
     #     The testing code is already written for you (above).
